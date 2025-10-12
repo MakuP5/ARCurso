@@ -1,15 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Visor AR</title>
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visor AR – Átomo</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body { margin: 0; padding: 0; overflow: hidden; }
+    model-viewer { width: 100vw; height: 100vh; }
+    .ar-prompt {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      display: none;
+    }
+    model-viewer[ar-status="not-presenting"] .ar-prompt {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-  <p>Prueba AR</p>
-<model-viewer alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" 
-  src="shared-assets/models/NeilArmstrong.glb" ar environment-image="shared-assets/environments/moon_1k.hdr" 
-  poster="shared-assets/models/NeilArmstrong.webp" shadow-intensity="1" camera-controls touch-action="pan-y">
+  <model-viewer 
+    src="model.glb"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    ar-scale="fixed"
+    camera-controls
+    xr-environment>
+    <div slot="ar-prompt" class="ar-prompt">
+      Mueva el dispositivo para detectar la superficie…
+    </div>
   </model-viewer>
 </body>
 </html>
+
