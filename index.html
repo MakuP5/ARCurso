@@ -3,21 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Visor AR</title>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   <style>
     body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #fafafa; }
   </style>
 </head>
 <body>
-  <model-viewer
-    src="modelo.glb"
-    ios-src="modelo.usdz"
-    alt="Modelo 3D interactivo"
-    ar
-    ar-modes="webxr scene-viewer quick-look"
-    camera-controls
-    auto-rotate
-    style="width:100%; max-width:800px; height:480px;">
+<!-- Import the component -->
+
+<!-- Use it like any other HTML element -->
+<model-viewer alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum" 
+  src="shared-assets/models/NeilArmstrong.glb" ar environment-image="shared-assets/environments/moon_1k.hdr" 
+  poster="shared-assets/models/NeilArmstrong.webp" shadow-intensity="1" camera-controls touch-action="pan-y">
   </model-viewer>
 </body>
 </html>
