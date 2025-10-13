@@ -1,50 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Visor AR – Átomo</title>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Test AR mínimo</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
-    body { margin: 0; padding: 0; overflow: hidden; }
-    model-viewer { width: 100vw; height: 100vh; }
-    .ar-prompt {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.5);
-      color: white;
-      padding: 5px 10px;
-      border-radius: 5px;
-      display: none;
-    }
-    model-viewer[ar-status="not-presenting"] .ar-prompt {
-      display: block;
-    }
+    html, body { height:100%; margin:0; }
+    model-viewer { width:100%; height:100%; background:#111; }
   </style>
 </head>
 <body>
-<model-viewer src="model.glb"
-  ios-src="model.usdz"
-  ar ar-modes="scene-viewer webxr quick-look" 
-  camera-controls tone-mapping="neutral" poster="poster.webp" 
-  shadow-intensity="1" auto-rotate>
-    <button class="Hotspot" slot="hotspot-1" data-position="1.5668750024715052m 0.7854976492367882m 768.6757108516047m" data-normal="0.8562632863699288m 0.35925621727609547m -0.37114438533196276m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">Manzana</div>
-    </button><button class="Hotspot" slot="hotspot-2" data-position="1.362537830775608m 1.0462531984765633m 768.857503572313m" data-normal="0.8970264950595577m -0.09262942067673129m -0.4321611477056431m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">Tallo</div>
-    </button>
-    <div class="progress-bar hide" slot="progress-bar">
-        <div class="update-bar"></div>
-    </div>
-    <button slot="ar-button" id="ar-button">
-        View in your space
-    </button>
-    <div id="ar-prompt">
-        <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
-    </div>
-</model-viewer>
+  <model-viewer
+    src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
+    ios-src="https://modelviewer.dev/shared-assets/models/Astronaut.usdz"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    camera-controls
+    alt="Astronauta en AR">
+  </model-viewer>
 </body>
 </html>
 
